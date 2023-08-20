@@ -1,0 +1,21 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[p mainexit ]
+"1 main.c
+[v _main `(v ~T0 @X0 1 ef ]
+"2
+{
+[e :U _main ]
+[f ]
+"3
+[v _latb `*uc ~T0 @X0 1 a ]
+[e = _latb -> -> 3978 `i `*uc ]
+"4
+[v _trisb `*uc ~T0 @X0 1 a ]
+[e = _trisb -> -> 3987 `i `*uc ]
+"6
+[e = *U _trisb -> -> 0 `i `uc ]
+"8
+[e = *U _latb -> -> 85 `i `uc ]
+"9
+[e :UE 1 ]
+}

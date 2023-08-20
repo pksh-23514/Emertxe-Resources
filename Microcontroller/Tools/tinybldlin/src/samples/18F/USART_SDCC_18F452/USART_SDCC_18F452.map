@@ -1,0 +1,237 @@
+gplink-0.13.6 alpha
+Map File - Created 8-17-2009  20:29:31
+ 
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+          S_crt0i___entry       code   00000000    program   0x000004
+       S_crt0i___do_cinit       code   0x00002a    program   0x0000a0
+S_USART_SDCC_18F452__puts       code   0x0000ca    program   0x000094
+S_USART_SDCC_18F452__putch       code   0x00015e    program   0x00008a
+S_USART_SDCC_18F452__main       code   0x0001e8    program   0x00006c
+S_USART_SDCC_18F452__getche       code   0x000254    program   0x000034
+    S_gptrget1___gptrget1       code   0x000288    program   0x000022
+        S_crt0i___startup       code   0x0002aa    program   0x000018
+S_USART_SDCC_18F452__getch       code   0x0002c2    program   0x000016
+                   .cinit       code   0x0002d8    program   0x00000e
+                 .idata_i       code   0x0002e6    program   0x000002
+                   .idata      idata   0x000080       data   0x000001
+               .registers      udata   00000000       data   0x000007
+            stack_section      udata   0x000200       data   0x000100
+       ustat_pic18f452_00      udata   0x000f80       data   0x000005
+       ustat_pic18f452_01      udata   0x000f89       data   0x000005
+       ustat_pic18f452_02      udata   0x000f92       data   0x000005
+       ustat_pic18f452_03      udata   0x000f9d       data   0x000006
+       ustat_pic18f452_04      udata   0x000fa6       data   0x000004
+       ustat_pic18f452_05      udata   0x000fab       data   0x000005
+       ustat_pic18f452_06      udata   0x000fb1       data   0x000003
+       ustat_pic18f452_07      udata   0x000fba       data   0x000006
+       ustat_pic18f452_08      udata   0x000fc1       data   0x000013
+       ustat_pic18f452_09      udata   0x000fd5       data   0x00002b
+ 
+                              Program Memory Usage
+                               Start         End
+                           ---------   ---------
+                            0x0001e8    0x000253
+                            0x0000ca    0x00015d
+                            0x000254    0x000287
+                            0x0002c2    0x0002d7
+                            0x00015e    0x0001e7
+                            0x0002e6    0x0002e7
+                            00000000    0x000003
+                            0x00002a    0x0000c9
+                            0x0002aa    0x0002c1
+                            0x000288    0x0002a9
+                            0x0002d8    0x0002e5
+ 
+                            353 program addresses used
+ 
+                              Symbols
+                     Name    Address   Location    Storage File
+                ---------  ---------  ---------  --------- ---------
+                    r0x00   00000000       data     static USART_SDCC_18F452.c
+                    r0x01   0x000001       data     static USART_SDCC_18F452.c
+                    r0x02   0x000002       data     static USART_SDCC_18F452.c
+                    r0x03   0x000003       data     static USART_SDCC_18F452.c
+                    r0x04   0x000004       data     static USART_SDCC_18F452.c
+                    r0x05   0x000005       data     static USART_SDCC_18F452.c
+                    r0x06   0x000006       data     static USART_SDCC_18F452.c
+                    _main   0x0001e8    program     extern USART_SDCC_18F452.c
+               _00128_DS_   0x000220    program     static USART_SDCC_18F452.c
+                    _puts   0x0000ca    program     extern USART_SDCC_18F452.c
+               _00119_DS_   0x000102    program     static USART_SDCC_18F452.c
+               _00122_DS_   0x00013c    program     static USART_SDCC_18F452.c
+                  _getche   0x000254    program     extern USART_SDCC_18F452.c
+                   _getch   0x0002c2    program     extern USART_SDCC_18F452.c
+               _00110_DS_   0x0002ca    program     static USART_SDCC_18F452.c
+                   _putch   0x00015e    program     extern USART_SDCC_18F452.c
+               _00105_DS_   0x000170    program     static USART_SDCC_18F452.c
+                  __str_0   0x000184    program     static USART_SDCC_18F452.c
+                  __str_1   0x0001b2    program     static USART_SDCC_18F452.c
+                  __str_2   0x0001da    program     static USART_SDCC_18F452.c
+                ___uflags   0x000080       data     extern ../build/startup/crt0i.asm
+                  __entry   00000000    program     extern ../build/startup/crt0i.asm
+               __do_cinit   0x00002a    program     extern ../build/startup/crt0i.asm
+                     test   0x000042    program     static ../build/startup/crt0i.asm
+                    done1   0x000048    program     static ../build/startup/crt0i.asm
+                    cont1   0x00004c    program     static ../build/startup/crt0i.asm
+                copy_loop   0x00009a    program     static ../build/startup/crt0i.asm
+            copy_one_byte   0x0000a0    program     static ../build/startup/crt0i.asm
+             done_copying   0x0000b2    program     static ../build/startup/crt0i.asm
+                  do_next   0x0000c4    program     static ../build/startup/crt0i.asm
+                     done   0x0000c8    program     static ../build/startup/crt0i.asm
+                __startup   0x0002aa    program     extern ../build/startup/crt0i.asm
+               _00109_DS_   0x0002c0    program     static ../build/startup/crt0i.asm
+                   _PORTA   0x000f80       data     extern ../build/libdev/pic18f452.asm
+               _PORTAbits   0x000f80       data     extern ../build/libdev/pic18f452.asm
+                   _PORTB   0x000f81       data     extern ../build/libdev/pic18f452.asm
+               _PORTBbits   0x000f81       data     extern ../build/libdev/pic18f452.asm
+                   _PORTC   0x000f82       data     extern ../build/libdev/pic18f452.asm
+               _PORTCbits   0x000f82       data     extern ../build/libdev/pic18f452.asm
+                   _PORTD   0x000f83       data     extern ../build/libdev/pic18f452.asm
+               _PORTDbits   0x000f83       data     extern ../build/libdev/pic18f452.asm
+                   _PORTE   0x000f84       data     extern ../build/libdev/pic18f452.asm
+               _PORTEbits   0x000f84       data     extern ../build/libdev/pic18f452.asm
+                    _LATA   0x000f89       data     extern ../build/libdev/pic18f452.asm
+                _LATAbits   0x000f89       data     extern ../build/libdev/pic18f452.asm
+                    _LATB   0x000f8a       data     extern ../build/libdev/pic18f452.asm
+                _LATBbits   0x000f8a       data     extern ../build/libdev/pic18f452.asm
+                    _LATC   0x000f8b       data     extern ../build/libdev/pic18f452.asm
+                _LATCbits   0x000f8b       data     extern ../build/libdev/pic18f452.asm
+                    _LATD   0x000f8c       data     extern ../build/libdev/pic18f452.asm
+                _LATDbits   0x000f8c       data     extern ../build/libdev/pic18f452.asm
+                    _LATE   0x000f8d       data     extern ../build/libdev/pic18f452.asm
+                _LATEbits   0x000f8d       data     extern ../build/libdev/pic18f452.asm
+                   _TRISA   0x000f92       data     extern ../build/libdev/pic18f452.asm
+               _TRISAbits   0x000f92       data     extern ../build/libdev/pic18f452.asm
+                   _TRISB   0x000f93       data     extern ../build/libdev/pic18f452.asm
+               _TRISBbits   0x000f93       data     extern ../build/libdev/pic18f452.asm
+                   _TRISC   0x000f94       data     extern ../build/libdev/pic18f452.asm
+               _TRISCbits   0x000f94       data     extern ../build/libdev/pic18f452.asm
+                   _TRISD   0x000f95       data     extern ../build/libdev/pic18f452.asm
+               _TRISDbits   0x000f95       data     extern ../build/libdev/pic18f452.asm
+                   _TRISE   0x000f96       data     extern ../build/libdev/pic18f452.asm
+               _TRISEbits   0x000f96       data     extern ../build/libdev/pic18f452.asm
+                    _PIE1   0x000f9d       data     extern ../build/libdev/pic18f452.asm
+                _PIE1bits   0x000f9d       data     extern ../build/libdev/pic18f452.asm
+                    _PIR1   0x000f9e       data     extern ../build/libdev/pic18f452.asm
+                _PIR1bits   0x000f9e       data     extern ../build/libdev/pic18f452.asm
+                    _IPR1   0x000f9f       data     extern ../build/libdev/pic18f452.asm
+                _IPR1bits   0x000f9f       data     extern ../build/libdev/pic18f452.asm
+                    _PIE2   0x000fa0       data     extern ../build/libdev/pic18f452.asm
+                _PIE2bits   0x000fa0       data     extern ../build/libdev/pic18f452.asm
+                    _PIR2   0x000fa1       data     extern ../build/libdev/pic18f452.asm
+                _PIR2bits   0x000fa1       data     extern ../build/libdev/pic18f452.asm
+                    _IPR2   0x000fa2       data     extern ../build/libdev/pic18f452.asm
+                _IPR2bits   0x000fa2       data     extern ../build/libdev/pic18f452.asm
+                  _EECON1   0x000fa6       data     extern ../build/libdev/pic18f452.asm
+              _EECON1bits   0x000fa6       data     extern ../build/libdev/pic18f452.asm
+                  _EECON2   0x000fa7       data     extern ../build/libdev/pic18f452.asm
+                  _EEDATA   0x000fa8       data     extern ../build/libdev/pic18f452.asm
+                   _EEADR   0x000fa9       data     extern ../build/libdev/pic18f452.asm
+                   _RCSTA   0x000fab       data     extern ../build/libdev/pic18f452.asm
+               _RCSTAbits   0x000fab       data     extern ../build/libdev/pic18f452.asm
+                   _TXSTA   0x000fac       data     extern ../build/libdev/pic18f452.asm
+               _TXSTAbits   0x000fac       data     extern ../build/libdev/pic18f452.asm
+                   _TXREG   0x000fad       data     extern ../build/libdev/pic18f452.asm
+                   _RCREG   0x000fae       data     extern ../build/libdev/pic18f452.asm
+                   _SPBRG   0x000faf       data     extern ../build/libdev/pic18f452.asm
+                   _T3CON   0x000fb1       data     extern ../build/libdev/pic18f452.asm
+               _T3CONbits   0x000fb1       data     extern ../build/libdev/pic18f452.asm
+                   _TMR3L   0x000fb2       data     extern ../build/libdev/pic18f452.asm
+                   _TMR3H   0x000fb3       data     extern ../build/libdev/pic18f452.asm
+                 _CCP2CON   0x000fba       data     extern ../build/libdev/pic18f452.asm
+             _CCP2CONbits   0x000fba       data     extern ../build/libdev/pic18f452.asm
+                  _CCPR2L   0x000fbb       data     extern ../build/libdev/pic18f452.asm
+                  _CCPR2H   0x000fbc       data     extern ../build/libdev/pic18f452.asm
+                 _CCP1CON   0x000fbd       data     extern ../build/libdev/pic18f452.asm
+             _CCP1CONbits   0x000fbd       data     extern ../build/libdev/pic18f452.asm
+                  _CCPR1L   0x000fbe       data     extern ../build/libdev/pic18f452.asm
+                  _CCPR1H   0x000fbf       data     extern ../build/libdev/pic18f452.asm
+                  _ADCON1   0x000fc1       data     extern ../build/libdev/pic18f452.asm
+              _ADCON1bits   0x000fc1       data     extern ../build/libdev/pic18f452.asm
+                  _ADCON0   0x000fc2       data     extern ../build/libdev/pic18f452.asm
+              _ADCON0bits   0x000fc2       data     extern ../build/libdev/pic18f452.asm
+                  _ADRESL   0x000fc3       data     extern ../build/libdev/pic18f452.asm
+                  _ADRESH   0x000fc4       data     extern ../build/libdev/pic18f452.asm
+                 _SSPCON2   0x000fc5       data     extern ../build/libdev/pic18f452.asm
+             _SSPCON2bits   0x000fc5       data     extern ../build/libdev/pic18f452.asm
+                 _SSPCON1   0x000fc6       data     extern ../build/libdev/pic18f452.asm
+             _SSPCON1bits   0x000fc6       data     extern ../build/libdev/pic18f452.asm
+                 _SSPSTAT   0x000fc7       data     extern ../build/libdev/pic18f452.asm
+             _SSPSTATbits   0x000fc7       data     extern ../build/libdev/pic18f452.asm
+                  _SSPADD   0x000fc8       data     extern ../build/libdev/pic18f452.asm
+                  _SSPBUF   0x000fc9       data     extern ../build/libdev/pic18f452.asm
+                   _T2CON   0x000fca       data     extern ../build/libdev/pic18f452.asm
+               _T2CONbits   0x000fca       data     extern ../build/libdev/pic18f452.asm
+                     _PR2   0x000fcb       data     extern ../build/libdev/pic18f452.asm
+                    _TMR2   0x000fcc       data     extern ../build/libdev/pic18f452.asm
+                   _T1CON   0x000fcd       data     extern ../build/libdev/pic18f452.asm
+               _T1CONbits   0x000fcd       data     extern ../build/libdev/pic18f452.asm
+                   _TMR1L   0x000fce       data     extern ../build/libdev/pic18f452.asm
+                   _TMR1H   0x000fcf       data     extern ../build/libdev/pic18f452.asm
+                    _RCON   0x000fd0       data     extern ../build/libdev/pic18f452.asm
+                _RCONbits   0x000fd0       data     extern ../build/libdev/pic18f452.asm
+                  _WDTCON   0x000fd1       data     extern ../build/libdev/pic18f452.asm
+              _WDTCONbits   0x000fd1       data     extern ../build/libdev/pic18f452.asm
+                  _LVDCON   0x000fd2       data     extern ../build/libdev/pic18f452.asm
+              _LVDCONbits   0x000fd2       data     extern ../build/libdev/pic18f452.asm
+                  _OSCCON   0x000fd3       data     extern ../build/libdev/pic18f452.asm
+              _OSCCONbits   0x000fd3       data     extern ../build/libdev/pic18f452.asm
+                   _T0CON   0x000fd5       data     extern ../build/libdev/pic18f452.asm
+               _T0CONbits   0x000fd5       data     extern ../build/libdev/pic18f452.asm
+                   _TMR0L   0x000fd6       data     extern ../build/libdev/pic18f452.asm
+                   _TMR0H   0x000fd7       data     extern ../build/libdev/pic18f452.asm
+                  _STATUS   0x000fd8       data     extern ../build/libdev/pic18f452.asm
+              _STATUSbits   0x000fd8       data     extern ../build/libdev/pic18f452.asm
+                   _FSR2L   0x000fd9       data     extern ../build/libdev/pic18f452.asm
+                   _FSR2H   0x000fda       data     extern ../build/libdev/pic18f452.asm
+                  _PLUSW2   0x000fdb       data     extern ../build/libdev/pic18f452.asm
+                 _PREINC2   0x000fdc       data     extern ../build/libdev/pic18f452.asm
+                _POSTDEC2   0x000fdd       data     extern ../build/libdev/pic18f452.asm
+                _POSTINC2   0x000fde       data     extern ../build/libdev/pic18f452.asm
+                   _INDF2   0x000fdf       data     extern ../build/libdev/pic18f452.asm
+                     _BSR   0x000fe0       data     extern ../build/libdev/pic18f452.asm
+                   _FSR1L   0x000fe1       data     extern ../build/libdev/pic18f452.asm
+                   _FSR1H   0x000fe2       data     extern ../build/libdev/pic18f452.asm
+                  _PLUSW1   0x000fe3       data     extern ../build/libdev/pic18f452.asm
+                 _PREINC1   0x000fe4       data     extern ../build/libdev/pic18f452.asm
+                _POSTDEC1   0x000fe5       data     extern ../build/libdev/pic18f452.asm
+                _POSTINC1   0x000fe6       data     extern ../build/libdev/pic18f452.asm
+                   _INDF1   0x000fe7       data     extern ../build/libdev/pic18f452.asm
+                    _WREG   0x000fe8       data     extern ../build/libdev/pic18f452.asm
+                   _FSR0L   0x000fe9       data     extern ../build/libdev/pic18f452.asm
+                   _FSR0H   0x000fea       data     extern ../build/libdev/pic18f452.asm
+                  _PLUSW0   0x000feb       data     extern ../build/libdev/pic18f452.asm
+                 _PREINC0   0x000fec       data     extern ../build/libdev/pic18f452.asm
+                _POSTDEC0   0x000fed       data     extern ../build/libdev/pic18f452.asm
+                _POSTINC0   0x000fee       data     extern ../build/libdev/pic18f452.asm
+                   _INDF0   0x000fef       data     extern ../build/libdev/pic18f452.asm
+                 _INTCON3   0x000ff0       data     extern ../build/libdev/pic18f452.asm
+             _INTCON3bits   0x000ff0       data     extern ../build/libdev/pic18f452.asm
+                 _INTCON2   0x000ff1       data     extern ../build/libdev/pic18f452.asm
+             _INTCON2bits   0x000ff1       data     extern ../build/libdev/pic18f452.asm
+                  _INTCON   0x000ff2       data     extern ../build/libdev/pic18f452.asm
+              _INTCONbits   0x000ff2       data     extern ../build/libdev/pic18f452.asm
+                   _PRODL   0x000ff3       data     extern ../build/libdev/pic18f452.asm
+                   _PRODH   0x000ff4       data     extern ../build/libdev/pic18f452.asm
+                  _TABLAT   0x000ff5       data     extern ../build/libdev/pic18f452.asm
+                 _TBLPTRL   0x000ff6       data     extern ../build/libdev/pic18f452.asm
+                 _TBLPTRH   0x000ff7       data     extern ../build/libdev/pic18f452.asm
+                 _TBLPTRU   0x000ff8       data     extern ../build/libdev/pic18f452.asm
+                     _PCL   0x000ff9       data     extern ../build/libdev/pic18f452.asm
+                  _PCLATH   0x000ffa       data     extern ../build/libdev/pic18f452.asm
+                  _PCLATU   0x000ffb       data     extern ../build/libdev/pic18f452.asm
+                  _STKPTR   0x000ffc       data     extern ../build/libdev/pic18f452.asm
+              _STKPTRbits   0x000ffc       data     extern ../build/libdev/pic18f452.asm
+                    _TOSL   0x000ffd       data     extern ../build/libdev/pic18f452.asm
+                    _TOSH   0x000ffe       data     extern ../build/libdev/pic18f452.asm
+                    _TOSU   0x000fff       data     extern ../build/libdev/pic18f452.asm
+                   _stack   0x000200       data     extern stack.S
+               _stack_end   0x0002ff       data     extern stack.S
+               __gptrget1   0x000288    program     extern ../../build/libsdcc/gptr/gptrget1.asm
+                 _lab_01_   0x000294    program     static ../../build/libsdcc/gptr/gptrget1.asm
+                 _lab_02_   0x0002a8    program     static ../../build/libsdcc/gptr/gptrget1.asm
+                    _end_   0x0002a8    program     static ../../build/libsdcc/gptr/gptrget1.asm
+                   _cinit   0x0002d8    program     extern USART_SDCC_18F452.c
+ 

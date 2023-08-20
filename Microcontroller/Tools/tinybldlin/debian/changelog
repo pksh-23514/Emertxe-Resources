@@ -1,0 +1,34 @@
+tinybldlin (0.8.1-ubuntu1) quantal; urgency=low
+
+  * Adding a GPL V.3 licence 
+
+ -- Fernando Juárez Villarreal (ferezvi) <ferezvi@gmail.com>  Wed, 14 Nov 2012 23:00:02 -0600
+
+
+tinybldlin (0.8-ubuntu2) quantal; urgency=low
+
+  * Adding a GPL licence 
+
+ -- Fernando Juárez Villarreal (ferezvi) <ferezvi@gmail.com>  Wed, 14 Nov 2012 22:24:02 -0600
+
+tinybldlin (0.8-ubuntu1) quantal; urgency=low
+
+  * Clear code
+  * Add icons tu /usr/share/icons/hicolor
+  * add branch to bazaar to get it $branch lp:~ferezvi/+junk/tinybldlin
+
+ -- Fernando Juárez Villarreal (ferezvi) <ferezvi@gmail.com>  Wed, 14 Nov 2012 20:43:09 -0600
+
+tinybldlin (0.7-ubuntu1) quantal; urgency=low
+
+  * Add icon as alternative dependency.
+
+ -- Fernando Juárez Villarreal (ferezvi) <ferezvi@gmail.com>  Fri, 11 May 2012 00:13:42 +0200
+
+tinybldlin (0.6-ubuntu1) precise; urgency=low
+
+  * tinybldlin: Fix crash if download mirror 0 is selected.
+
+ -- Fernando Juárez Villarreal (ferezvi) <ferezvi@gmail.com>  Sat, 17 Mar 2012 23:53:24 +0100
+
+

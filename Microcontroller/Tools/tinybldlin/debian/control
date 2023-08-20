@@ -1,0 +1,18 @@
+Source: tinybldlin
+Section: electronics
+Priority: optional
+Maintainer: Fernando Juárez <ferezvi@gmail.com>
+Build-Depends: debhelper (>= 7), imagemagick
+Standards-Version: 3.9.3
+Homepage: http://fjv.awardspace.com
+
+Package: tinybldlin
+Architecture: all
+Depends: python, python-gtk2, python-cairo, python-gobject, python-serial,
+         ${misc:Depends},
+	 ${python:Depends}
+Description: Tiny Pic Bootloader for Linux
+ tinybldLin is a bootloader for the Microchip PIC microcontrollers
+ can writte flash memmory for those devices who support self
+ programing (16F, 18F)
+

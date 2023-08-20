@@ -1,0 +1,8 @@
+Needed for 64 bit systems:
+--------------------------
+$ sudo apt-get install libc6:i386 libx11-6:i386 libxext6:i386 libstdc++6:i386 libexpat1:i386
+
+Change permission of tinybldlin.py:
+-----------------------------------
+Assuming the you have followed the instruction on creating the workspace, type the following command
+$ chmod +x ~/ECEP/Microcontrollers/Tools/tinybldlin/src/tinybldlin.py

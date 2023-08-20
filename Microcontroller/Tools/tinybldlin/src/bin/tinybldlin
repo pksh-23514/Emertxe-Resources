@@ -1,0 +1,3 @@
+#!/bin/bash
+# Script de hola mundo
+python /usr/share/tinybldlin/tinybldlin.py

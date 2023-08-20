@@ -1,0 +1,398 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                               Tue Nov  8 09:19:02 2022
+
+Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og9 
+     1                           	processor	18F4580
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    10                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    11  0000                     
+    12                           ; Version 2.20
+    13                           ; Generated 09/04/2020 GMT
+    14                           ; 
+    15                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    41                           ; 
+    42                           ; 
+    43                           ; Code-generator required, PIC18F4580 Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46  0000                     _PORTB	set	3969
+    47  0000                     _TRISB	set	3987
+    48  0000                     _ADCON1	set	4033
+    49                           
+    50                           ; #config settings
+    51                           
+    52                           	psect	cinit
+    53  002F8A                     __pcinit:
+    54                           	callstack 0
+    55  002F8A                     start_initialization:
+    56                           	callstack 0
+    57  002F8A                     __initialization:
+    58                           	callstack 0
+    59  002F8A                     end_of_initialization:
+    60                           	callstack 0
+    61  002F8A                     __end_of__initialization:
+    62                           	callstack 0
+    63  002F8A  0100               	movlb	0
+    64  002F8C  EFCD  F017         	goto	_main	;jump to C main() function
+    65                           
+    66                           	psect	cstackCOMRAM
+    67  000001                     __pcstackCOMRAM:
+    68                           	callstack 0
+    69  000001                     main@i:
+    70                           	callstack 0
+    71                           
+    72                           ; 4 bytes @ 0x0
+    73  000001                     	ds	4
+    74                           
+    75 ;;
+    76 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    77 ;;
+    78 ;; *************** function _main *****************
+    79 ;; Defined at:
+    80 ;;		line 10 in file "main.c"
+    81 ;; Parameters:    Size  Location     Type
+    82 ;;		None
+    83 ;; Auto vars:     Size  Location     Type
+    84 ;;  i               4    0[COMRAM] unsigned long 
+    85 ;;  j               4    0        unsigned long 
+    86 ;; Return value:  Size  Location     Type
+    87 ;;                  1    wreg      void 
+    88 ;; Registers used:
+    89 ;;		wreg, status,2, status,0, cstack
+    90 ;; Tracked objects:
+    91 ;;		On entry : 0/0
+    92 ;;		On exit  : 0/0
+    93 ;;		Unchanged: 0/0
+    94 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+    95 ;;      Params:         0       0       0       0       0       0       0
+    96 ;;      Locals:         4       0       0       0       0       0       0
+    97 ;;      Temps:          0       0       0       0       0       0       0
+    98 ;;      Totals:         4       0       0       0       0       0       0
+    99 ;;Total ram usage:        4 bytes
+   100 ;; Hardware stack levels required when called:    1
+   101 ;; This function calls:
+   102 ;;		_init_config
+   103 ;; This function is called by:
+   104 ;;		Startup code after reset
+   105 ;; This function uses a non-reentrant model
+   106 ;;
+   107                           
+   108                           	psect	text0
+   109  002F9A                     __ptext0:
+   110                           	callstack 0
+   111  002F9A                     _main:
+   112                           	callstack 30
+   113                           
+   114                           ;main.c: 12: unsigned long i;;main.c: 13: unsigned long j;;main.c: 15: init_config();
+   115                           
+   116                           ;incstack = 0
+   117  002F9A  ECC8  F017         	call	_init_config	;wreg free
+   118  002F9E                     l775:
+   119                           
+   120                           ;main.c: 18: {;main.c: 20: PORTB = 0xF0;
+   121  002F9E  0EF0               	movlw	240
+   122  002FA0  6E81               	movwf	129,c	;volatile
+   123                           
+   124                           ;main.c: 21: for ( i = 50000; i--;);
+   125  002FA2  0E50               	movlw	80
+   126  002FA4  6E01               	movwf	main@i^0,c
+   127  002FA6  0EC3               	movlw	195
+   128  002FA8  6E02               	movwf	(main@i+1)^0,c
+   129  002FAA  0E00               	movlw	0
+   130  002FAC  6E03               	movwf	(main@i+2)^0,c
+   131  002FAE  0E00               	movlw	0
+   132  002FB0  6E04               	movwf	(main@i+3)^0,c
+   133  002FB2                     l779:
+   134  002FB2  0601               	decf	main@i^0,f,c
+   135  002FB4  0E00               	movlw	0
+   136  002FB6  5A02               	subwfb	(main@i+1)^0,f,c
+   137  002FB8  5A03               	subwfb	(main@i+2)^0,f,c
+   138  002FBA  5A04               	subwfb	(main@i+3)^0,f,c
+   139  002FBC  2801               	incf	main@i^0,w,c
+   140  002FBE  E1F9               	bnz	l779
+   141  002FC0  2802               	incf	(main@i+1)^0,w,c
+   142  002FC2  E1F7               	bnz	l779
+   143  002FC4  2803               	incf	(main@i+2)^0,w,c
+   144  002FC6  E1F5               	bnz	l779
+   145  002FC8  2804               	incf	(main@i+3)^0,w,c
+   146  002FCA  A4D8               	btfss	status,2,c
+   147  002FCC  D7F2               	goto	l779
+   148                           
+   149                           ;main.c: 22: PORTB = 0x0F;
+   150  002FCE  0E0F               	movlw	15
+   151  002FD0  6E81               	movwf	129,c	;volatile
+   152                           
+   153                           ;main.c: 23: for (i = 50000; i--; );
+   154  002FD2  0E50               	movlw	80
+   155  002FD4  6E01               	movwf	main@i^0,c
+   156  002FD6  0EC3               	movlw	195
+   157  002FD8  6E02               	movwf	(main@i+1)^0,c
+   158  002FDA  0E00               	movlw	0
+   159  002FDC  6E03               	movwf	(main@i+2)^0,c
+   160  002FDE  0E00               	movlw	0
+   161  002FE0  6E04               	movwf	(main@i+3)^0,c
+   162  002FE2                     l783:
+   163  002FE2  0601               	decf	main@i^0,f,c
+   164  002FE4  0E00               	movlw	0
+   165  002FE6  5A02               	subwfb	(main@i+1)^0,f,c
+   166  002FE8  5A03               	subwfb	(main@i+2)^0,f,c
+   167  002FEA  5A04               	subwfb	(main@i+3)^0,f,c
+   168  002FEC  2801               	incf	main@i^0,w,c
+   169  002FEE  E1F9               	bnz	l783
+   170  002FF0  2802               	incf	(main@i+1)^0,w,c
+   171  002FF2  E1F7               	bnz	l783
+   172  002FF4  2803               	incf	(main@i+2)^0,w,c
+   173  002FF6  E1F5               	bnz	l783
+   174  002FF8  2804               	incf	(main@i+3)^0,w,c
+   175  002FFA  B4D8               	btfsc	status,2,c
+   176  002FFC  D7D0               	goto	l775
+   177  002FFE  D7F1               	goto	l783
+   178  003000                     __end_of_main:
+   179                           	callstack 0
+   180                           
+   181 ;; *************** function _init_config *****************
+   182 ;; Defined at:
+   183 ;;		line 4 in file "main.c"
+   184 ;; Parameters:    Size  Location     Type
+   185 ;;		None
+   186 ;; Auto vars:     Size  Location     Type
+   187 ;;		None
+   188 ;; Return value:  Size  Location     Type
+   189 ;;                  1    wreg      void 
+   190 ;; Registers used:
+   191 ;;		wreg, status,2
+   192 ;; Tracked objects:
+   193 ;;		On entry : 0/0
+   194 ;;		On exit  : 0/0
+   195 ;;		Unchanged: 0/0
+   196 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   197 ;;      Params:         0       0       0       0       0       0       0
+   198 ;;      Locals:         0       0       0       0       0       0       0
+   199 ;;      Temps:          0       0       0       0       0       0       0
+   200 ;;      Totals:         0       0       0       0       0       0       0
+   201 ;;Total ram usage:        0 bytes
+   202 ;; Hardware stack levels used:    1
+   203 ;; This function calls:
+   204 ;;		Nothing
+   205 ;; This function is called by:
+   206 ;;		_main
+   207 ;; This function uses a non-reentrant model
+   208 ;;
+   209                           
+   210                           	psect	text1
+   211  002F90                     __ptext1:
+   212                           	callstack 0
+   213  002F90                     _init_config:
+   214                           	callstack 30
+   215                           
+   216                           ;main.c: 6: ADCON1 = 0x0F;
+   217                           
+   218                           ;incstack = 0
+   219  002F90  0E0F               	movlw	15
+   220  002F92  6EC1               	movwf	193,c	;volatile
+   221                           
+   222                           ;main.c: 7: TRISB = 0x00;
+   223  002F94  0E00               	movlw	0
+   224  002F96  6E93               	movwf	147,c	;volatile
+   225  002F98  0012               	return		;funcret
+   226  002F9A                     __end_of_init_config:
+   227                           	callstack 0
+   228  0000                     
+   229                           	psect	rparam
+   230  0000                     tosu	equ	0xFFF
+   231                           tosh	equ	0xFFE
+   232                           tosl	equ	0xFFD
+   233                           stkptr	equ	0xFFC
+   234                           pclatu	equ	0xFFB
+   235                           pclath	equ	0xFFA
+   236                           pcl	equ	0xFF9
+   237                           tblptru	equ	0xFF8
+   238                           tblptrh	equ	0xFF7
+   239                           tblptrl	equ	0xFF6
+   240                           tablat	equ	0xFF5
+   241                           prodh	equ	0xFF4
+   242                           prodl	equ	0xFF3
+   243                           indf0	equ	0xFEF
+   244                           postinc0	equ	0xFEE
+   245                           postdec0	equ	0xFED
+   246                           preinc0	equ	0xFEC
+   247                           plusw0	equ	0xFEB
+   248                           fsr0h	equ	0xFEA
+   249                           fsr0l	equ	0xFE9
+   250                           wreg	equ	0xFE8
+   251                           indf1	equ	0xFE7
+   252                           postinc1	equ	0xFE6
+   253                           postdec1	equ	0xFE5
+   254                           preinc1	equ	0xFE4
+   255                           plusw1	equ	0xFE3
+   256                           fsr1h	equ	0xFE2
+   257                           fsr1l	equ	0xFE1
+   258                           bsr	equ	0xFE0
+   259                           indf2	equ	0xFDF
+   260                           postinc2	equ	0xFDE
+   261                           postdec2	equ	0xFDD
+   262                           preinc2	equ	0xFDC
+   263                           plusw2	equ	0xFDB
+   264                           fsr2h	equ	0xFDA
+   265                           fsr2l	equ	0xFD9
+   266                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95      4       4
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 8     8      0      30
+                                              0 COMRAM     4     4      0
+                        _init_config
+ ---------------------------------------------------------------------------------
+ (1) _init_config                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _init_config
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5F      4       4       1        4.2%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BIGRAM             5FF      0       0      16        0.0%
+DATA                 0      0       0      17        0.0%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
+Symbol Table                                                                                   Tue Nov  8 09:19:02 2022
+
+                    l783 2FE2                      l775 2F9E                      l779 2FB2  
+                   _main 2F9A                     start 0000             ___param_bank 000000  
+                  ?_main 0001             ?_init_config 0001                    _PORTB 000F81  
+                  _TRISB 000F93                    main@i 0001                    status 000FD8  
+        __initialization 2F8A             __end_of_main 3000                   ??_main 0001  
+          __activetblptr 000000                   _ADCON1 000FC1               __accesstop 0060  
+__end_of__initialization 2F8A            ___rparam_used 000001           __pcstackCOMRAM 0001  
+   __size_of_init_config 000A                  __Hparam 0000                  __Lparam 0000  
+                __pcinit 2F8A                  __ramtop 0600                  __ptext0 2F9A  
+                __ptext1 2F90     end_of_initialization 2F8A      start_initialization 2F8A  
+          ??_init_config 0001      __end_of_init_config 2F9A                 __Hrparam 0000  
+               __Lrparam 0000              _init_config 2F90            __size_of_main 0066  

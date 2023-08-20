@@ -1,0 +1,1053 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                               Tue Nov 29 14:57:07 2022
+
+Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og9 
+     1                           	processor	18F4580
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    16                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    18                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    19                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    20  0000                     
+    21                           ; Version 2.20
+    22                           ; Generated 09/04/2020 GMT
+    23                           ; 
+    24                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; 
+    51                           ; 
+    52                           ; Code-generator required, PIC18F4580 Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55  0000                     _TXREG	set	4013
+    56  0000                     _SPBRG	set	4015
+    57  0000                     _RCREG	set	4014
+    58  0000                     _GIE	set	32663
+    59  0000                     _PEIE	set	32662
+    60  0000                     _RCIE	set	31981
+    61  0000                     _TXIF	set	31988
+    62  0000                     _TXIE	set	31980
+    63  0000                     _ABDEN	set	32192
+    64  0000                     _WUE	set	32193
+    65  0000                     _BRG16	set	32195
+    66  0000                     _SCKP	set	32196
+    67  0000                     _RCIDL	set	32198
+    68  0000                     _ABDOVF	set	32199
+    69  0000                     _RX9D	set	32088
+    70  0000                     _FERR	set	32090
+    71  0000                     _ADDEN	set	32091
+    72  0000                     _CREN	set	32092
+    73  0000                     _SREN	set	32093
+    74  0000                     _RX9	set	32094
+    75  0000                     _SPEN	set	32095
+    76  0000                     _TX9D	set	32096
+    77  0000                     _TRMT	set	32097
+    78  0000                     _BRGH	set	32098
+    79  0000                     _SENDB	set	32099
+    80  0000                     _SYNC	set	32100
+    81  0000                     _TXEN	set	32101
+    82  0000                     _TX9	set	32102
+    83  0000                     _CSRC	set	32103
+    84  0000                     _TRISC6	set	31910
+    85  0000                     _TRISC7	set	31911
+    86  0000                     _OERR	set	32089
+    87  0000                     _RCIF	set	31989
+    88                           
+    89                           	psect	smallconst
+    90  000600                     __psmallconst:
+    91                           	callstack 0
+    92  000600  00                 	db	0
+    93  000601                     STR_1:
+    94  000601  45                 	db	69	;'E'
+    95  000602  6D                 	db	109	;'m'
+    96  000603  65                 	db	101	;'e'
+    97  000604  72                 	db	114	;'r'
+    98  000605  74                 	db	116	;'t'
+    99  000606  78                 	db	120	;'x'
+   100  000607  65                 	db	101	;'e'
+   101  000608  20                 	db	32
+   102  000609  49                 	db	73	;'I'
+   103  00060A  6E                 	db	110	;'n'
+   104  00060B  66                 	db	102	;'f'
+   105  00060C  6F                 	db	111	;'o'
+   106  00060D  72                 	db	114	;'r'
+   107  00060E  6D                 	db	109	;'m'
+   108  00060F  61                 	db	97	;'a'
+   109  000610  74                 	db	116	;'t'
+   110  000611  69                 	db	105	;'i'
+   111  000612  6F                 	db	111	;'o'
+   112  000613  6E                 	db	110	;'n'
+   113  000614  20                 	db	32
+   114  000615  54                 	db	84	;'T'
+   115  000616  65                 	db	101	;'e'
+   116  000617  63                 	db	99	;'c'
+   117  000618  68                 	db	104	;'h'
+   118  000619  6E                 	db	110	;'n'
+   119  00061A  6F                 	db	111	;'o'
+   120  00061B  6C                 	db	108	;'l'
+   121  00061C  6F                 	db	111	;'o'
+   122  00061D  67                 	db	103	;'g'
+   123  00061E  69                 	db	105	;'i'
+   124  00061F  65                 	db	101	;'e'
+   125  000620  73                 	db	115	;'s'
+   126  000621  2E                 	db	46
+   127  000622  20                 	db	32
+   128  000623  50                 	db	80	;'P'
+   129  000624  72                 	db	114	;'r'
+   130  000625  65                 	db	101	;'e'
+   131  000626  73                 	db	115	;'s'
+   132  000627  73                 	db	115	;'s'
+   133  000628  20                 	db	32
+   134  000629  61                 	db	97	;'a'
+   135  00062A  6E                 	db	110	;'n'
+   136  00062B  79                 	db	121	;'y'
+   137  00062C  20                 	db	32
+   138  00062D  6B                 	db	107	;'k'
+   139  00062E  65                 	db	101	;'e'
+   140  00062F  79                 	db	121	;'y'
+   141  000630  20                 	db	32
+   142  000631  74                 	db	116	;'t'
+   143  000632  6F                 	db	111	;'o'
+   144  000633  20                 	db	32
+   145  000634  63                 	db	99	;'c'
+   146  000635  6F                 	db	111	;'o'
+   147  000636  6E                 	db	110	;'n'
+   148  000637  74                 	db	116	;'t'
+   149  000638  69                 	db	105	;'i'
+   150  000639  6E                 	db	110	;'n'
+   151  00063A  75                 	db	117	;'u'
+   152  00063B  65                 	db	101	;'e'
+   153  00063C  0A                 	db	10
+   154  00063D  0D                 	db	13
+   155  00063E  00                 	db	0
+   156  00063F                     STR_3:
+   157  00063F  59                 	db	89	;'Y'
+   158  000640  6F                 	db	111	;'o'
+   159  000641  75                 	db	117	;'u'
+   160  000642  20                 	db	32
+   161  000643  73                 	db	115	;'s'
+   162  000644  68                 	db	104	;'h'
+   163  000645  6F                 	db	111	;'o'
+   164  000646  75                 	db	117	;'u'
+   165  000647  6C                 	db	108	;'l'
+   166  000648  64                 	db	100	;'d'
+   167  000649  20                 	db	32
+   168  00064A  67                 	db	103	;'g'
+   169  00064B  65                 	db	101	;'e'
+   170  00064C  74                 	db	116	;'t'
+   171  00064D  20                 	db	32
+   172  00064E  62                 	db	98	;'b'
+   173  00064F  61                 	db	97	;'a'
+   174  000650  63                 	db	99	;'c'
+   175  000651  6B                 	db	107	;'k'
+   176  000652  20                 	db	32
+   177  000653  77                 	db	119	;'w'
+   178  000654  68                 	db	104	;'h'
+   179  000655  61                 	db	97	;'a'
+   180  000656  74                 	db	116	;'t'
+   181  000657  65                 	db	101	;'e'
+   182  000658  76                 	db	118	;'v'
+   183  000659  65                 	db	101	;'e'
+   184  00065A  72                 	db	114	;'r'
+   185  00065B  20                 	db	32
+   186  00065C  79                 	db	121	;'y'
+   187  00065D  6F                 	db	111	;'o'
+   188  00065E  75                 	db	117	;'u'
+   189  00065F  20                 	db	32
+   190  000660  74                 	db	116	;'t'
+   191  000661  79                 	db	121	;'y'
+   192  000662  70                 	db	112	;'p'
+   193  000663  65                 	db	101	;'e'
+   194  000664  3A                 	db	58	;':'
+   195  000665  0A                 	db	10
+   196  000666  0D                 	db	13
+   197  000667  00                 	db	0
+   198  000668                     STR_2:
+   199  000668  57                 	db	87	;'W'
+   200  000669  65                 	db	101	;'e'
+   201  00066A  6C                 	db	108	;'l'
+   202  00066B  63                 	db	99	;'c'
+   203  00066C  6F                 	db	111	;'o'
+   204  00066D  6D                 	db	109	;'m'
+   205  00066E  65                 	db	101	;'e'
+   206  00066F  2E                 	db	46
+   207  000670  20                 	db	32
+   208  000671  54                 	db	84	;'T'
+   209  000672  68                 	db	104	;'h'
+   210  000673  69                 	db	105	;'i'
+   211  000674  73                 	db	115	;'s'
+   212  000675  20                 	db	32
+   213  000676  69                 	db	105	;'i'
+   214  000677  73                 	db	115	;'s'
+   215  000678  20                 	db	32
+   216  000679  55                 	db	85	;'U'
+   217  00067A  41                 	db	65	;'A'
+   218  00067B  52                 	db	82	;'R'
+   219  00067C  54                 	db	84	;'T'
+   220  00067D  20                 	db	32
+   221  00067E  54                 	db	84	;'T'
+   222  00067F  65                 	db	101	;'e'
+   223  000680  73                 	db	115	;'s'
+   224  000681  74                 	db	116	;'t'
+   225  000682  20                 	db	32
+   226  000683  43                 	db	67	;'C'
+   227  000684  6F                 	db	111	;'o'
+   228  000685  64                 	db	100	;'d'
+   229  000686  65                 	db	101	;'e'
+   230  000687  2E                 	db	46
+   231  000688  0A                 	db	10
+   232  000689  0D                 	db	13
+   233  00068A  00                 	db	0
+   234  00068B  00                 	db	0	; dummy byte at the end
+   235  0000                     
+   236                           ; #config settings
+   237                           
+   238                           	psect	cinit
+   239  000726                     __pcinit:
+   240                           	callstack 0
+   241  000726                     start_initialization:
+   242                           	callstack 0
+   243  000726                     __initialization:
+   244                           	callstack 0
+   245                           
+   246                           ; Clear objects allocated to COMRAM (1 bytes)
+   247  000726  6A03               	clrf	__pbssCOMRAM& (0+255),c
+   248  000728                     end_of_initialization:
+   249                           	callstack 0
+   250  000728                     __end_of__initialization:
+   251                           	callstack 0
+   252  000728  9004               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   253  00072A  9204               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   254  00072C  0E00               	movlw	low (__Lsmallconst shr (0+16))
+   255  00072E  6EF8               	movwf	tblptru,c
+   256  000730  0E06               	movlw	high __Lsmallconst
+   257  000732  6EF7               	movwf	tblptrh,c
+   258  000734  0100               	movlb	0
+   259  000736  EF65  F003         	goto	_main	;jump to C main() function
+   260                           
+   261                           	psect	bssCOMRAM
+   262  000003                     __pbssCOMRAM:
+   263                           	callstack 0
+   264  000003                     _ch:
+   265                           	callstack 0
+   266  000003                     	ds	1
+   267                           
+   268                           	psect	cstackCOMRAM
+   269  000001                     __pcstackCOMRAM:
+   270                           	callstack 0
+   271  000001                     putch@byte:
+   272                           	callstack 0
+   273                           
+   274                           ; 1 bytes @ 0x0
+   275  000001                     	ds	1
+   276  000002                     puts@s:
+   277                           	callstack 0
+   278                           
+   279                           ; 1 bytes @ 0x1
+   280  000002                     	ds	1
+   281  000003                     
+   282                           ; 1 bytes @ 0x2
+   283 ;;
+   284 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   285 ;;
+   286 ;; *************** function _main *****************
+   287 ;; Defined at:
+   288 ;;		line 20 in file "main.c"
+   289 ;; Parameters:    Size  Location     Type
+   290 ;;		None
+   291 ;; Auto vars:     Size  Location     Type
+   292 ;;  c               1    0        unsigned char 
+   293 ;; Return value:  Size  Location     Type
+   294 ;;                  1    wreg      void 
+   295 ;; Registers used:
+   296 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   297 ;; Tracked objects:
+   298 ;;		On entry : 0/0
+   299 ;;		On exit  : 0/0
+   300 ;;		Unchanged: 0/0
+   301 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   302 ;;      Params:         0       0       0       0       0       0       0
+   303 ;;      Locals:         0       0       0       0       0       0       0
+   304 ;;      Temps:          0       0       0       0       0       0       0
+   305 ;;      Totals:         0       0       0       0       0       0       0
+   306 ;;Total ram usage:        0 bytes
+   307 ;; Hardware stack levels required when called:    4
+   308 ;; This function calls:
+   309 ;;		_init_config
+   310 ;;		_putch
+   311 ;;		_puts
+   312 ;; This function is called by:
+   313 ;;		Startup code after reset
+   314 ;; This function uses a non-reentrant model
+   315 ;;
+   316                           
+   317                           	psect	text0
+   318  0006CA                     __ptext0:
+   319                           	callstack 0
+   320  0006CA                     _main:
+   321                           	callstack 27
+   322                           
+   323                           ;main.c: 22: char c;;main.c: 24: init_config();
+   324                           
+   325                           ;incstack = 0
+   326  0006CA  EC88  F003         	call	_init_config	;wreg free
+   327                           
+   328                           ;main.c: 26: puts("Welcome. This is UART Test Code.\n\r");
+   329  0006CE  0E68               	movlw	low STR_2
+   330  0006D0  6E02               	movwf	puts@s^0,c
+   331  0006D2  EC78  F003         	call	_puts	;wreg free
+   332                           
+   333                           ;main.c: 27: puts("You should get back whatever you type:\n\r");
+   334  0006D6  0E3F               	movlw	low STR_3
+   335  0006D8  6E02               	movwf	puts@s^0,c
+   336  0006DA  EC78  F003         	call	_puts	;wreg free
+   337  0006DE                     l981:
+   338                           
+   339                           ;main.c: 31: {;main.c: 32: if (ch != '\0')
+   340  0006DE  5003               	movf	_ch^0,w,c
+   341  0006E0  B4D8               	btfsc	status,2,c
+   342  0006E2  D7FD               	goto	l981
+   343                           
+   344                           ;main.c: 33: {;main.c: 34: putch(ch);
+   345  0006E4  5003               	movf	_ch^0,w,c
+   346  0006E6  ECA7  F003         	call	_putch
+   347                           
+   348                           ;main.c: 36: ch = '\0';
+   349  0006EA  0E00               	movlw	0
+   350  0006EC  6E03               	movwf	_ch^0,c
+   351  0006EE  D7F7               	goto	l981
+   352  0006F0                     __end_of_main:
+   353                           	callstack 0
+   354                           
+   355 ;; *************** function _init_config *****************
+   356 ;; Defined at:
+   357 ;;		line 7 in file "main.c"
+   358 ;; Parameters:    Size  Location     Type
+   359 ;;		None
+   360 ;; Auto vars:     Size  Location     Type
+   361 ;;		None
+   362 ;; Return value:  Size  Location     Type
+   363 ;;                  1    wreg      void 
+   364 ;; Registers used:
+   365 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   366 ;; Tracked objects:
+   367 ;;		On entry : 0/0
+   368 ;;		On exit  : 0/0
+   369 ;;		Unchanged: 0/0
+   370 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   371 ;;      Params:         0       0       0       0       0       0       0
+   372 ;;      Locals:         0       0       0       0       0       0       0
+   373 ;;      Temps:          0       0       0       0       0       0       0
+   374 ;;      Totals:         0       0       0       0       0       0       0
+   375 ;;Total ram usage:        0 bytes
+   376 ;; Hardware stack levels used:    1
+   377 ;; Hardware stack levels required when called:    3
+   378 ;; This function calls:
+   379 ;;		_getch
+   380 ;;		_init_uart
+   381 ;;		_puts
+   382 ;; This function is called by:
+   383 ;;		_main
+   384 ;; This function uses a non-reentrant model
+   385 ;;
+   386                           
+   387                           	psect	text1
+   388  000710                     __ptext1:
+   389                           	callstack 0
+   390  000710                     _init_config:
+   391                           	callstack 27
+   392                           
+   393                           ;main.c: 9: init_uart();
+   394                           
+   395                           ;incstack = 0
+   396  000710  EC46  F003         	call	_init_uart	;wreg free
+   397                           
+   398                           ;main.c: 11: puts("Emertxe Information Technologies. Press any key to continue\n\r");
+   399  000714  0E01               	movlw	low STR_1
+   400  000716  6E02               	movwf	puts@s^0,c
+   401  000718  EC78  F003         	call	_puts	;wreg free
+   402                           
+   403                           ;main.c: 12: getch();
+   404  00071C  ECAD  F003         	call	_getch	;wreg free
+   405                           
+   406                           ;main.c: 14: PEIE = 1;
+   407  000720  8CF2               	bsf	4082,6,c	;volatile
+   408                           
+   409                           ;main.c: 17: GIE = 1;
+   410  000722  8EF2               	bsf	4082,7,c	;volatile
+   411  000724  0012               	return		;funcret
+   412  000726                     __end_of_init_config:
+   413                           	callstack 0
+   414                           
+   415 ;; *************** function _puts *****************
+   416 ;; Defined at:
+   417 ;;		line 90 in file "uart.c"
+   418 ;; Parameters:    Size  Location     Type
+   419 ;;  s               1    1[COMRAM] PTR const unsigned char 
+   420 ;;		 -> STR_3(41), STR_2(35), STR_1(62), 
+   421 ;; Auto vars:     Size  Location     Type
+   422 ;;		None
+   423 ;; Return value:  Size  Location     Type
+   424 ;;                  2    1[COMRAM] int 
+   425 ;; Registers used:
+   426 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   427 ;; Tracked objects:
+   428 ;;		On entry : 0/0
+   429 ;;		On exit  : 0/0
+   430 ;;		Unchanged: 0/0
+   431 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   432 ;;      Params:         1       0       0       0       0       0       0
+   433 ;;      Locals:         0       0       0       0       0       0       0
+   434 ;;      Temps:          0       0       0       0       0       0       0
+   435 ;;      Totals:         1       0       0       0       0       0       0
+   436 ;;Total ram usage:        1 bytes
+   437 ;; Hardware stack levels used:    1
+   438 ;; Hardware stack levels required when called:    2
+   439 ;; This function calls:
+   440 ;;		_putch
+   441 ;; This function is called by:
+   442 ;;		_init_config
+   443 ;;		_main
+   444 ;; This function uses a non-reentrant model
+   445 ;;
+   446                           
+   447                           	psect	text2
+   448  0006F0                     __ptext2:
+   449                           	callstack 0
+   450  0006F0                     _puts:
+   451                           	callstack 28
+   452                           
+   453                           ;uart.c: 92: while(*s)
+   454                           
+   455                           ;incstack = 0
+   456  0006F0  D007               	goto	l955
+   457  0006F2                     l951:
+   458                           
+   459                           ;uart.c: 93: {;uart.c: 94: putch(*s++);
+   460  0006F2  C002  FFF6         	movff	puts@s,tblptrl
+   461  0006F6                     	if	0	;There is only one active tblptr byte
+   462  0006F6                     	endif
+   463  0006F6                     	if	0	;tblptru may be non-zero
+   464  0006F6                     	endif
+   465  0006F6                     	if	0	;tblptru may be non-zero
+   466  0006F6                     	endif
+   467  0006F6  0008               	tblrd		*
+   468  0006F8  50F5               	movf	tablat,w,c
+   469  0006FA  ECA7  F003         	call	_putch
+   470  0006FE  2A02               	incf	puts@s^0,f,c
+   471  000700                     l955:
+   472  000700  C002  FFF6         	movff	puts@s,tblptrl
+   473  000704                     	if	0	;There is only one active tblptr byte
+   474  000704                     	endif
+   475  000704                     	if	0	;tblptru may be non-zero
+   476  000704                     	endif
+   477  000704                     	if	0	;tblptru may be non-zero
+   478  000704                     	endif
+   479  000704  0008               	tblrd		*
+   480  000706  50F5               	movf	tablat,w,c
+   481  000708  0900               	iorlw	0
+   482  00070A  B4D8               	btfsc	status,2,c
+   483  00070C  0012               	return	
+   484  00070E  D7F1               	goto	l951
+   485  000710                     __end_of_puts:
+   486                           	callstack 0
+   487                           
+   488 ;; *************** function _putch *****************
+   489 ;; Defined at:
+   490 ;;		line 79 in file "uart.c"
+   491 ;; Parameters:    Size  Location     Type
+   492 ;;  byte            1    wreg     unsigned char 
+   493 ;; Auto vars:     Size  Location     Type
+   494 ;;  byte            1    0[COMRAM] unsigned char 
+   495 ;; Return value:  Size  Location     Type
+   496 ;;                  1    wreg      void 
+   497 ;; Registers used:
+   498 ;;		wreg
+   499 ;; Tracked objects:
+   500 ;;		On entry : 0/0
+   501 ;;		On exit  : 0/0
+   502 ;;		Unchanged: 0/0
+   503 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   504 ;;      Params:         0       0       0       0       0       0       0
+   505 ;;      Locals:         1       0       0       0       0       0       0
+   506 ;;      Temps:          0       0       0       0       0       0       0
+   507 ;;      Totals:         1       0       0       0       0       0       0
+   508 ;;Total ram usage:        1 bytes
+   509 ;; Hardware stack levels used:    1
+   510 ;; Hardware stack levels required when called:    1
+   511 ;; This function calls:
+   512 ;;		Nothing
+   513 ;; This function is called by:
+   514 ;;		_puts
+   515 ;;		_main
+   516 ;; This function uses a non-reentrant model
+   517 ;;
+   518                           
+   519                           	psect	text3
+   520  00074E                     __ptext3:
+   521                           	callstack 0
+   522  00074E                     _putch:
+   523                           	callstack 28
+   524                           
+   525                           ;incstack = 0
+   526                           ;putch@byte stored from wreg
+   527  00074E  6E01               	movwf	putch@byte^0,c
+   528  000750                     
+   529                           ;uart.c: 83: while(!TXIF)
+   530  000750  A89E               	btfss	3998,4,c	;volatile
+   531  000752  D7FE               	goto	l933
+   532                           
+   533                           ;uart.c: 86: };uart.c: 87: TXREG = byte;
+   534  000754  C001  FFAD         	movff	putch@byte,4013	;volatile
+   535  000758  0012               	return		;funcret
+   536  00075A                     __end_of_putch:
+   537                           	callstack 0
+   538                           
+   539 ;; *************** function _init_uart *****************
+   540 ;; Defined at:
+   541 ;;		line 4 in file "uart.c"
+   542 ;; Parameters:    Size  Location     Type
+   543 ;;		None
+   544 ;; Auto vars:     Size  Location     Type
+   545 ;;		None
+   546 ;; Return value:  Size  Location     Type
+   547 ;;                  1    wreg      void 
+   548 ;; Registers used:
+   549 ;;		wreg, status,2
+   550 ;; Tracked objects:
+   551 ;;		On entry : 0/0
+   552 ;;		On exit  : 0/0
+   553 ;;		Unchanged: 0/0
+   554 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   555 ;;      Params:         0       0       0       0       0       0       0
+   556 ;;      Locals:         0       0       0       0       0       0       0
+   557 ;;      Temps:          0       0       0       0       0       0       0
+   558 ;;      Totals:         0       0       0       0       0       0       0
+   559 ;;Total ram usage:        0 bytes
+   560 ;; Hardware stack levels used:    1
+   561 ;; Hardware stack levels required when called:    1
+   562 ;; This function calls:
+   563 ;;		Nothing
+   564 ;; This function is called by:
+   565 ;;		_init_config
+   566 ;; This function uses a non-reentrant model
+   567 ;;
+   568                           
+   569                           	psect	text4
+   570  00068C                     __ptext4:
+   571                           	callstack 0
+   572  00068C                     _init_uart:
+   573                           	callstack 28
+   574                           
+   575                           ;uart.c: 7: TRISC7 = 1;
+   576                           
+   577                           ;incstack = 0
+   578  00068C  8E94               	bsf	3988,7,c	;volatile
+   579                           
+   580                           ;uart.c: 8: TRISC6 = 0;
+   581  00068E  9C94               	bcf	3988,6,c	;volatile
+   582                           
+   583                           ;uart.c: 13: CSRC = 0;
+   584  000690  9EAC               	bcf	4012,7,c	;volatile
+   585                           
+   586                           ;uart.c: 15: TX9 = 0;
+   587  000692  9CAC               	bcf	4012,6,c	;volatile
+   588                           
+   589                           ;uart.c: 17: TXEN = 1;
+   590  000694  8AAC               	bsf	4012,5,c	;volatile
+   591                           
+   592                           ;uart.c: 20: SYNC = 0;
+   593  000696  98AC               	bcf	4012,4,c	;volatile
+   594                           
+   595                           ;uart.c: 22: SENDB = 0;
+   596  000698  96AC               	bcf	4012,3,c	;volatile
+   597                           
+   598                           ;uart.c: 25: BRGH = 1;
+   599  00069A  84AC               	bsf	4012,2,c	;volatile
+   600                           
+   601                           ;uart.c: 27: TRMT = 0;
+   602  00069C  92AC               	bcf	4012,1,c	;volatile
+   603                           
+   604                           ;uart.c: 29: TX9D = 0;
+   605  00069E  90AC               	bcf	4012,0,c	;volatile
+   606                           
+   607                           ;uart.c: 34: SPEN = 1;
+   608  0006A0  8EAB               	bsf	4011,7,c	;volatile
+   609                           
+   610                           ;uart.c: 36: RX9 = 0;
+   611  0006A2  9CAB               	bcf	4011,6,c	;volatile
+   612                           
+   613                           ;uart.c: 38: SREN = 0;
+   614  0006A4  9AAB               	bcf	4011,5,c	;volatile
+   615                           
+   616                           ;uart.c: 40: CREN = 1;
+   617  0006A6  88AB               	bsf	4011,4,c	;volatile
+   618                           
+   619                           ;uart.c: 42: ADDEN = 0;
+   620  0006A8  96AB               	bcf	4011,3,c	;volatile
+   621                           
+   622                           ;uart.c: 44: FERR = 0;
+   623  0006AA  94AB               	bcf	4011,2,c	;volatile
+   624                           
+   625                           ;uart.c: 46: OERR = 0;
+   626  0006AC  92AB               	bcf	4011,1,c	;volatile
+   627                           
+   628                           ;uart.c: 48: RX9D = 0;
+   629  0006AE  90AB               	bcf	4011,0,c	;volatile
+   630                           
+   631                           ;uart.c: 53: ABDOVF = 0;
+   632  0006B0  9EB8               	bcf	4024,7,c	;volatile
+   633                           
+   634                           ;uart.c: 55: RCIDL = 1;
+   635  0006B2  8CB8               	bsf	4024,6,c	;volatile
+   636                           
+   637                           ;uart.c: 57: SCKP = 0;
+   638  0006B4  98B8               	bcf	4024,4,c	;volatile
+   639                           
+   640                           ;uart.c: 59: BRG16 = 0;
+   641  0006B6  96B8               	bcf	4024,3,c	;volatile
+   642                           
+   643                           ;uart.c: 61: WUE = 0;
+   644  0006B8  92B8               	bcf	4024,1,c	;volatile
+   645                           
+   646                           ;uart.c: 63: ABDEN = 0;
+   647  0006BA  90B8               	bcf	4024,0,c	;volatile
+   648                           
+   649                           ;uart.c: 67: SPBRG = 129;
+   650  0006BC  0E81               	movlw	129
+   651  0006BE  6EAF               	movwf	175,c	;volatile
+   652                           
+   653                           ;uart.c: 70: TXIE = 1;
+   654  0006C0  889D               	bsf	3997,4,c	;volatile
+   655                           
+   656                           ;uart.c: 72: TXIF = 0;
+   657  0006C2  989E               	bcf	3998,4,c	;volatile
+   658                           
+   659                           ;uart.c: 74: RCIE = 1;
+   660  0006C4  8A9D               	bsf	3997,5,c	;volatile
+   661                           
+   662                           ;uart.c: 76: RCIF = 0;
+   663  0006C6  9A9E               	bcf	3998,5,c	;volatile
+   664  0006C8  0012               	return		;funcret
+   665  0006CA                     __end_of_init_uart:
+   666                           	callstack 0
+   667                           
+   668 ;; *************** function _getch *****************
+   669 ;; Defined at:
+   670 ;;		line 100 in file "uart.c"
+   671 ;; Parameters:    Size  Location     Type
+   672 ;;		None
+   673 ;; Auto vars:     Size  Location     Type
+   674 ;;		None
+   675 ;; Return value:  Size  Location     Type
+   676 ;;                  1    wreg      unsigned char 
+   677 ;; Registers used:
+   678 ;;		wreg, status,2
+   679 ;; Tracked objects:
+   680 ;;		On entry : 0/0
+   681 ;;		On exit  : 0/0
+   682 ;;		Unchanged: 0/0
+   683 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   684 ;;      Params:         0       0       0       0       0       0       0
+   685 ;;      Locals:         0       0       0       0       0       0       0
+   686 ;;      Temps:          0       0       0       0       0       0       0
+   687 ;;      Totals:         0       0       0       0       0       0       0
+   688 ;;Total ram usage:        0 bytes
+   689 ;; Hardware stack levels used:    1
+   690 ;; Hardware stack levels required when called:    1
+   691 ;; This function calls:
+   692 ;;		Nothing
+   693 ;; This function is called by:
+   694 ;;		_init_config
+   695 ;; This function uses a non-reentrant model
+   696 ;;
+   697                           
+   698                           	psect	text5
+   699  00075A                     __ptext5:
+   700                           	callstack 0
+   701  00075A                     _getch:
+   702                           	callstack 28
+   703                           
+   704                           ;uart.c: 104: while(!RCIF)
+   705                           
+   706                           ;incstack = 0
+   707  00075A  AA9E               	btfss	3998,5,c	;volatile
+   708  00075C  D7FE               	goto	_getch
+   709                           
+   710                           ;uart.c: 107: };uart.c: 109: return RCREG;
+   711  00075E  50AE               	movf	174,w,c	;volatile
+   712  000760  0012               	return		;funcret
+   713  000762                     __end_of_getch:
+   714                           	callstack 0
+   715                           
+   716 ;; *************** function _isr *****************
+   717 ;; Defined at:
+   718 ;;		line 5 in file "isr.c"
+   719 ;; Parameters:    Size  Location     Type
+   720 ;;		None
+   721 ;; Auto vars:     Size  Location     Type
+   722 ;;		None
+   723 ;; Return value:  Size  Location     Type
+   724 ;;                  1    wreg      void 
+   725 ;; Registers used:
+   726 ;;		None
+   727 ;; Tracked objects:
+   728 ;;		On entry : 0/0
+   729 ;;		On exit  : 0/0
+   730 ;;		Unchanged: 0/0
+   731 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   732 ;;      Params:         0       0       0       0       0       0       0
+   733 ;;      Locals:         0       0       0       0       0       0       0
+   734 ;;      Temps:          0       0       0       0       0       0       0
+   735 ;;      Totals:         0       0       0       0       0       0       0
+   736 ;;Total ram usage:        0 bytes
+   737 ;; Hardware stack levels used:    1
+   738 ;; This function calls:
+   739 ;;		Nothing
+   740 ;; This function is called by:
+   741 ;;		Interrupt level 2
+   742 ;; This function uses a non-reentrant model
+   743 ;;
+   744                           
+   745                           	psect	intcode
+   746  000008                     __pintcode:
+   747                           	callstack 0
+   748  000008                     _isr:
+   749                           	callstack 27
+   750                           
+   751                           ;incstack = 0
+   752  000008  8204               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+   753  00000A  ED9D  F003         	call	int_func,f	;refresh shadow registers
+   754                           
+   755                           	psect	intcode_body
+   756  00073A                     __pintcode_body:
+   757                           	callstack 27
+   758  00073A                     int_func:
+   759                           	callstack 27
+   760  00073A  0006               	pop		; remove dummy address from shadow register refresh
+   761                           
+   762                           ;isr.c: 7: if (RCIF == 1)
+   763  00073C  AA9E               	btfss	3998,5,c	;volatile
+   764  00073E  D005               	goto	i2l15
+   765                           
+   766                           ;isr.c: 8: {;isr.c: 9: if (OERR == 1)
+   767  000740  B2AB               	btfsc	4011,1,c	;volatile
+   768                           
+   769                           ;isr.c: 10: OERR = 0;
+   770  000742  92AB               	bcf	4011,1,c	;volatile
+   771                           
+   772                           ;isr.c: 12: ch = RCREG;
+   773  000744  CFAE F003          	movff	4014,_ch	;volatile
+   774                           
+   775                           ;isr.c: 14: RCIF = 0;
+   776  000748  9A9E               	bcf	3998,5,c	;volatile
+   777  00074A                     i2l15:
+   778  00074A  9204               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+   779  00074C  0011               	retfie		f
+   780  00074E                     __end_of_isr:
+   781                           	callstack 0
+   782                           
+   783                           	psect	rparam
+   784  0000                     
+   785                           	psect	temp
+   786  000004                     btemp:
+   787                           	callstack 0
+   788  000004                     	ds	1
+   789  0000                     int$flags	set	btemp
+   790  0000                     wtemp8	set	btemp+1
+   791  0000                     ttemp5	set	btemp+1
+   792  0000                     ttemp6	set	btemp+4
+   793  0000                     ttemp7	set	btemp+8
+   794                           tosu	equ	0xFFF
+   795                           tosh	equ	0xFFE
+   796                           tosl	equ	0xFFD
+   797                           stkptr	equ	0xFFC
+   798                           pclatu	equ	0xFFB
+   799                           pclath	equ	0xFFA
+   800                           pcl	equ	0xFF9
+   801                           tblptru	equ	0xFF8
+   802                           tblptrh	equ	0xFF7
+   803                           tblptrl	equ	0xFF6
+   804                           tablat	equ	0xFF5
+   805                           prodh	equ	0xFF4
+   806                           prodl	equ	0xFF3
+   807                           indf0	equ	0xFEF
+   808                           postinc0	equ	0xFEE
+   809                           postdec0	equ	0xFED
+   810                           preinc0	equ	0xFEC
+   811                           plusw0	equ	0xFEB
+   812                           fsr0h	equ	0xFEA
+   813                           fsr0l	equ	0xFE9
+   814                           wreg	equ	0xFE8
+   815                           indf1	equ	0xFE7
+   816                           postinc1	equ	0xFE6
+   817                           postdec1	equ	0xFE5
+   818                           preinc1	equ	0xFE4
+   819                           plusw1	equ	0xFE3
+   820                           fsr1h	equ	0xFE2
+   821                           fsr1l	equ	0xFE1
+   822                           bsr	equ	0xFE0
+   823                           indf2	equ	0xFDF
+   824                           postinc2	equ	0xFDE
+   825                           postdec2	equ	0xFDD
+   826                           preinc2	equ	0xFDC
+   827                           plusw2	equ	0xFDB
+   828                           fsr2h	equ	0xFDA
+   829                           fsr2l	equ	0xFD9
+   830                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     138
+    Constant    0
+    Data        0
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94      2       3
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    puts@s	PTR const unsigned char  size(1) Largest target is 62
+		 -> STR_3(CODE[41]), STR_2(CODE[35]), STR_1(CODE[62]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_puts
+    _init_config->_puts
+    _puts->_putch
+
+Critical Paths under _isr in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _isr in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0     612
+                        _init_config
+                              _putch
+                               _puts
+ ---------------------------------------------------------------------------------
+ (1) _init_config                                          0     0      0     295
+                              _getch
+                          _init_uart
+                               _puts
+ ---------------------------------------------------------------------------------
+ (1) _puts                                                 1     0      1     295
+                                              1 COMRAM     1     0      1
+                              _putch
+ ---------------------------------------------------------------------------------
+ (2) _putch                                                1     1      0      22
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (2) _init_uart                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _getch                                                0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _isr                                                  0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _init_config
+     _getch
+     _init_uart
+     _puts
+       _putch
+   _putch
+   _puts
+     _putch
+
+ _isr (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             5FF      0       0      16        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E      2       3       1        3.2%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0       3       3        0.0%
+DATA                 0      0       3      17        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
+Symbol Table                                                                                   Tue Nov 29 14:57:07 2022
+
+                     _ch 0003                      l933 0750                      l951 06F2  
+                    l955 0700                      l981 06DE                      _GIE 007F97  
+                    _RX9 007D5E                      _TX9 007D66                      _WUE 007DC1  
+                    _isr 0008                     ?_isr 0001                     STR_1 0601  
+                   STR_2 0668                     STR_3 063F                     _BRGH 007D62  
+                   _CREN 007D5C                     _FERR 007D5A                     _CSRC 007D67  
+                   _PEIE 007F96                     _RCIE 007CED                     _RCIF 007CF5  
+                   i2l15 074A                     _OERR 007D59                     _SCKP 007DC4  
+                   _RX9D 007D58                     _SPEN 007D5F                     _TX9D 007D60  
+                   _SREN 007D5D                     _TRMT 007D61                     _TXIE 007CEC  
+                   _TXEN 007D65                     _TXIF 007CF4                     _SYNC 007D64  
+                   _main 06CA                     btemp 0004                     _puts 06F0  
+                   start 000E             ___param_bank 000000                    ??_isr 0001  
+                  _ABDEN 007DC0                    _ADDEN 007D5B                    ?_main 0001  
+                  _BRG16 007DC3                    ?_puts 0002             ?_init_config 0001  
+                  _RCIDL 007DC6                    _RCREG 000FAE                    _SENDB 007D63  
+                  _SPBRG 000FAF                    _TXREG 000FAD                    _getch 075A  
+                  _putch 074E                    tablat 000FF5                    puts@s 0002  
+                  ttemp5 0005                    ttemp6 0008                    ttemp7 000C  
+                  status 000FD8                    wtemp8 0005          __initialization 0726  
+           __end_of_main 06F0             __end_of_puts 0710                   ??_main 0003  
+                 ??_puts 0003            __activetblptr 000001                   ?_getch 0001  
+                 _ABDOVF 007DC7                   ?_putch 0001                   _TRISC6 007CA6  
+                 _TRISC7 007CA7             __mediumconst 0000                   tblptrh 000FF7  
+                 tblptrl 000FF6                   tblptru 000FF8               __accesstop 0060  
+__end_of__initialization 0728            ___rparam_used 000001           __pcstackCOMRAM 0001  
+          __end_of_getch 0762            __end_of_putch 075A     __size_of_init_config 0016  
+                ??_getch 0001                  ??_putch 0001       __size_of_init_uart 003E  
+                __Hparam 0000                  __Lparam 0000             __psmallconst 0600  
+                __pcinit 0726                  __ramtop 0600                  __ptext0 06CA  
+                __ptext1 0710                  __ptext2 06F0                  __ptext3 074E  
+                __ptext4 068C                  __ptext5 075A             __size_of_isr 0746  
+      __end_of_init_uart 06CA           __pintcode_body 073A     end_of_initialization 0728  
+                int_func 073A      start_initialization 0726              __end_of_isr 074E  
+          ??_init_config 0003              __pbssCOMRAM 0003                __pintcode 0008  
+            __smallconst 0600           __size_of_getch 0008      __end_of_init_config 0726  
+              _init_uart 068C           __size_of_putch 000C               ?_init_uart 0001  
+               __Hrparam 0000                 __Lrparam 0000             __Lsmallconst 0600  
+            _init_config 0710            __size_of_main 0026            __size_of_puts 0020  
+               int$flags 0004                putch@byte 0001              ??_init_uart 0001  
+               intlevel2 0000  

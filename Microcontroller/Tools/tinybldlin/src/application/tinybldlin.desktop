@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=0.6
+Encoding=UTF-8
+Name=tinybldlin
+Comment=This is a bootloader for the Microchip PIC microcontrollers
+Categories=Application;Development;Electronics;
+Exec=/usr/bin/tinybldlin
+Icon=tinybldlin.png
+Terminal=false
+Type=Application
+Name[es_MX]=tinybldlin.desktop

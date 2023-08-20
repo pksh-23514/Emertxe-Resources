@@ -1,0 +1,192 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                                           Tue Nov 29 14:57:07 2022
+
+
+     1                           	processor	18F4580
+     2                           	pagewidth 132
+     3                           	psect	const,global,reloc=2,class=CONST,delta=1,noexec
+     4                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     5                           	psect	mediumconst,global,reloc=2,class=MEDIUMCONST,delta=1,noexec
+     6                           	psect	rbss,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	bss,global,class=RAM,space=1,delta=1,noexec
+     8                           	psect	rdata,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	irdata,global,reloc=2,class=CODE,delta=1,noexec
+    10                           	psect	data,global,class=RAM,space=1,delta=1,noexec
+    11                           	psect	idata,global,reloc=2,class=CODE,delta=1,noexec
+    12                           	psect	nvrram,global,class=COMRAM,space=1,delta=1,noexec
+    13                           	psect	nvbit,global,bit,class=COMRAM,space=1,delta=1,noexec
+    14                           	psect	temp,global,ovrld,class=COMRAM,space=1,delta=1,noexec
+    15                           	psect	struct,global,ovrld,class=COMRAM,space=1,delta=1,noexec
+    16                           	psect	rbit,global,bit,class=COMRAM,space=1,delta=1,noexec
+    17                           	psect	bigbss,global,class=BIGRAM,space=1,delta=1,noexec
+    18                           	psect	bigdata,global,class=BIGRAM,space=1,delta=1,noexec
+    19                           	psect	ibigdata,global,reloc=2,class=CODE,delta=1,noexec
+    20                           	psect	farbss,global,reloc=2,class=FARRAM,delta=1,noexec
+    21                           	psect	nvFARRAM,global,reloc=2,class=FARRAM,delta=1,noexec
+    22                           	psect	fardata,global,reloc=2,class=FARRAM,delta=1,noexec
+    23                           	psect	ifardata,global,reloc=2,class=CODE,delta=1,noexec
+    24                           	psect	reset_vec,global,reloc=2,class=CODE,delta=1
+    25                           	psect	powerup,global,reloc=2,class=CODE,delta=1
+    26                           	psect	init,global,reloc=2,class=CODE,delta=1
+    27                           	psect	text,global,reloc=2,class=CODE,delta=1
+    28                           	psect	clrtext,global,reloc=2,class=CODE,delta=1
+    29                           	psect	config,global,class=CONFIG,space=4,delta=1,noexec
+    30                           	psect	idloc,global,class=IDLOC,space=5,delta=1,noexec
+    31                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    32                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    33                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
+    34                           	psect	intret,global,reloc=2,class=CODE,delta=1
+    35                           	psect	intentry,global,reloc=2,class=CODE,delta=1
+    36                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    37                           	psect	eeprom_data,global,class=EEDATA,delta=1,noexec
+    38                           	psect	ramtop,global,class=RAM,delta=1,noexec
+    39                           	psect	stack,global,class=STACK,space=2,delta=1,noexec
+    40                           	psect	comram,global,class=COMRAM,space=1,delta=1
+    41                           	psect	abs1,global,class=ABS1,space=1,delta=1
+    42                           	psect	bigram,global,class=BIGRAM,space=1,delta=1
+    43                           	psect	ram,global,class=RAM,space=1,delta=1
+    44                           	psect	bank0,global,class=BANK0,space=1,delta=1
+    45                           	psect	bank1,global,class=BANK1,space=1,delta=1
+    46                           	psect	bank2,global,class=BANK2,space=1,delta=1
+    47                           	psect	bank3,global,class=BANK3,space=1,delta=1
+    48                           	psect	bank4,global,class=BANK4,space=1,delta=1
+    49                           	psect	bank5,global,class=BANK5,space=1,delta=1
+    50                           	psect	sfr,global,class=SFR,space=1,delta=1
+    51                           
+    52                           ; Microchip MPLAB XC8 C Compiler V2.20
+    53                           ; Copyright (C) 2020 Microchip Technology Inc.
+    54                           ; Auto-generated runtime startup code for final link stage.
+    55                           ;
+    56                           ; Compiler options:
+    57                           ;
+    58                           ; -I/opt/microchip/xc8/v1.36/include/ --ROM=0-3000 -Q --opt=all \
+    59                           ; --asmlist --summary=psect,mem -Mpic18F4580.map -DCOMPILER= -intel \
+    60                           ; isr.p1 uart.p1 main.p1 -opic18F4580.hex
+    61                           ;
+    62  0000                     
+    63                           ; Version 2.20
+    64                           ; Generated 09/04/2020 GMT
+    65                           ; 
+    66                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    67                           ; All rights reserved.
+    68                           ; 
+    69                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microchip").
+    70                           ; 
+    71                           ; Redistribution and use in source and binary forms, with or without modification, are
+    72                           ; permitted provided that the following conditions are met:
+    73                           ; 
+    74                           ;     1. Redistributions of source code must retain the above copyright notice, this list of
+    75                           ;        conditions and the following disclaimer.
+    76                           ; 
+    77                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this list
+    78                           ;        of conditions and the following disclaimer in the documentation and/or other
+    79                           ;        materials provided with the distribution.
+    80                           ; 
+    81                           ;     3. Microchip's name may not be used to endorse or promote products derived from this
+    82                           ;        software without specific prior written permission.
+    83                           ; 
+    84                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    85                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+    86                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIRECT,
+    87                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    88                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    89                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+    90                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+    91                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    92                           ; 
+    93                           ; 
+    94                           ; Code-generator required, PIC18F4580 Definitions
+    95                           ; 
+    96                           ; SFR Addresses
+    97  0000                     
+    98                           	psect	smallconst
+    99  000600                     __smallconst:
+   100                           	callstack 0
+   101                           
+   102                           	psect	mediumconst
+   103  000000                     __mediumconst:
+   104                           	callstack 0	; top of RAM usage
+   105                           
+   106                           	psect	reset_vec
+   107  000000                     
+   108                           ; No powerup routine
+   109                           ; jump to start
+   110  000000  EF07  F000         	goto	start
+   111  0000                     
+   112                           ;Initialize the stack pointer (FSR1)
+   113  0000                     
+   114                           	psect	init
+   115  00000E                     start:
+   116                           	callstack 0
+   117  00000E  EF93  F003         	goto	start_initialization	;jump to C runtime clear & initialization
+   118                           
+   119                           	psect	text
+   120  000000                     intlevel0:
+   121                           	callstack 0
+   122  000000                     intlevel1:
+   123                           	callstack 0
+   124  000000                     intlevel2:
+   125                           	callstack 0
+   126  000000                     intlevel3:
+   127                           	callstack 0
+   128                           
+   129                           	psect	ramtop
+   130  000600                     __ramtop:
+   131                           	callstack 0
+   132                           
+   133                           	psect	stack
+   134  000000                     ___sp:
+   135                           	callstack 0
+   136  000000                     ___inthi_sp:
+   137                           	callstack 0
+   138  000000                     ___intlo_sp:
+   139                           	callstack 0
+   140                           tosu	equ	0xFFF
+   141                           tosh	equ	0xFFE
+   142                           tosl	equ	0xFFD
+   143                           stkptr	equ	0xFFC
+   144                           pclatu	equ	0xFFB
+   145                           pclath	equ	0xFFA
+   146                           pcl	equ	0xFF9
+   147                           tblptru	equ	0xFF8
+   148                           tblptrh	equ	0xFF7
+   149                           tblptrl	equ	0xFF6
+   150                           tablat	equ	0xFF5
+   151                           prodh	equ	0xFF4
+   152                           prodl	equ	0xFF3
+   153                           indf0	equ	0xFEF
+   154                           postinc0	equ	0xFEE
+   155                           postdec0	equ	0xFED
+   156                           preinc0	equ	0xFEC
+   157                           plusw0	equ	0xFEB
+   158                           fsr0h	equ	0xFEA
+   159                           fsr0l	equ	0xFE9
+   160                           wreg	equ	0xFE8
+   161                           indf1	equ	0xFE7
+   162                           postinc1	equ	0xFE6
+   163                           postdec1	equ	0xFE5
+   164                           preinc1	equ	0xFE4
+   165                           plusw1	equ	0xFE3
+   166                           fsr1h	equ	0xFE2
+   167                           fsr1l	equ	0xFE1
+   168                           bsr	equ	0xFE0
+   169                           indf2	equ	0xFDF
+   170                           postinc2	equ	0xFDE
+   171                           postdec2	equ	0xFDD
+   172                           preinc2	equ	0xFDC
+   173                           plusw2	equ	0xFDB
+   174                           fsr2h	equ	0xFDA
+   175                           fsr2l	equ	0xFD9
+   176                           status	equ	0xFD8
+
+
+Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
+Symbol Table                                                                                               Tue Nov 29 14:57:07 2022
+
+                __S1 0005                 ___sp 0000                 _main 06CA                 start 000E  
+              __HRAM 0000                __LRAM 0001         __mediumconst 0000               stackhi 0005FF  
+             stacklo 000060           __accesstop 000060           ___inthi_sp 0000           ___intlo_sp 0000  
+            __ramtop 0600  start_initialization 0726          __smallconst 0600             intlevel0 0000  
+           intlevel1 0000             intlevel2 0000             intlevel3 0000             reset_vec 0000  

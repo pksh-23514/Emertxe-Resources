@@ -1,0 +1,16 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F452</device>
+    <tool>sdcc</tool>
+    <files>
+      <item>USART_SDCC_18F452.c</item>
+      <item>usart.h</item>
+    </files>
+    <opened_files>
+      <item>USART_SDCC_18F452.c</item>
+      <item>usart.h</item>
+    </opened_files>
+  </general>
+  <editors/>
+</piklab>
